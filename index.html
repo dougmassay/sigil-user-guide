@@ -1,0 +1,15 @@
+<html>
+<head>
+  <title></title>
+  <script src="epub.min.js"></script>
+  <script>
+    var book = ePub("src/OEBPS/content.opf");
+    var rendition = book.renderTo("area", {width: 600, height: 400});
+    var displayed = rendition.display();
+  </script>
+</head>
+
+<body>
+    <div id="area"></div>
+</body>
+</html>

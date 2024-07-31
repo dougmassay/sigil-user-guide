@@ -20,6 +20,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  READIUMURL: https://github.com/readium/readium-js-viewer/releases/download/v0.32.0/Readium_cloud-reader-lite.zip
+
 jobs:
   # Single deploy job since we're just deploying
   deploy:
@@ -30,13 +33,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Get Readium Lite
+        shell: cmd
+        run: |
+          curl -L -o viewer.zip $READIUMURL && unzip viewer.zip
+          mkdir viewer/epub_content/guide
+          cd viewer/epub_content/guide/
+          cp -R $GITHUB_WORKSPACE/src/* .
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: '.'
+          path: 'viewer/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

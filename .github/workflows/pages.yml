@@ -36,10 +36,10 @@ jobs:
       - name: Get Readium Lite
         shell: bash
         run: |
-          mkdir viewer
-          curl -L -o viewer.zip $READIUMURL && unzip -o -d ./viewer viewer.zip
-          mkdir viewer/epub_content/guide
-          cd viewer/epub_content/guide/
+          mkdir view2
+          curl -L -o viewer.zip $READIUMURL && unzip -o -d ./view2 viewer.zip
+          mkdir view2/epub_content/guide
+          cd view2/epub_content/guide/
           cp -R $GITHUB_WORKSPACE/src/* .
       - name: Setup Pages
         uses: actions/configure-pages@v5

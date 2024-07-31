@@ -36,7 +36,8 @@ jobs:
       - name: Get Readium Lite
         shell: bash
         run: |
-          curl -L -o viewer.zip $READIUMURL && unzip -o viewer.zip
+          mkdir viewer
+          curl -L -o viewer.zip $READIUMURL && unzip -o -d ./viewer viewer.zip
           mkdir viewer/epub_content/guide
           cd viewer/epub_content/guide/
           cp -R $GITHUB_WORKSPACE/src/* .

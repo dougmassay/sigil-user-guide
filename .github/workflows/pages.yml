@@ -34,7 +34,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Get Readium Lite
-        shell: cmd
+        shell: bash
         run: |
           curl -L -o viewer.zip $READIUMURL && unzip viewer.zip
           mkdir viewer/epub_content/guide

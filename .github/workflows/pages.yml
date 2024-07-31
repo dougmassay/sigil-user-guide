@@ -38,8 +38,8 @@ jobs:
         run: |
           mkdir view2
           curl -L -o viewer.zip $READIUMURL && unzip -o -d ./view2 viewer.zip
-          mkdir view2/epub_content/guide
-          cd view2/epub_content/guide/
+          mkdir ./view2/epub_content/guide
+          cd ./view2/epub_content/guide/
           cp -R $GITHUB_WORKSPACE/src/* .
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: 'viewer/'
+          path: 'view2/'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

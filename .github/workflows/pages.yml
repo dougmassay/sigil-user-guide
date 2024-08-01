@@ -22,6 +22,7 @@ concurrency:
 
 env:
   READIUMURL: https://github.com/readium/readium-js-viewer/releases/download/v0.32.0/Readium_cloud-reader-lite.zip
+  PAGESURL: https://dougmassay.github.io/sigil-user-guide/index2.html?epub=epub_content/guide
 
 jobs:
   # Single deploy job since we're just deploying
@@ -42,14 +43,14 @@ jobs:
           cat > ./view2/index.html <<EOF
           <!DOCTYPE html>
           <html>
-          <head>
-          <title>redirect</title>
-          <meta charset="utf-8">   
-          <meta http-equiv="refresh" content="0;URL='https://dougmassay.github.io/sigil-user-guide/index2.html?epub=epub_content/guide'" />
-          </head>
-          <body>
-          <p>redirect</p>
-          </body>
+            <head>
+              <title>redirect</title>
+              <meta charset="utf-8">   
+              <meta http-equiv="refresh" content="0;URL='$PAGESURL'" />
+            </head>
+            <body>
+              <p>redirect</p>
+            </body>
           </html>
           EOF
           mkdir -p ./view2/epub_content/guide

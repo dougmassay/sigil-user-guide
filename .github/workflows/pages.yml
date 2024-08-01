@@ -44,12 +44,12 @@ jobs:
           <!DOCTYPE html>
           <html>
             <head>
-              <title>redirect</title>
+              <title>Redirecting...</title>
               <meta charset="utf-8">   
               <meta http-equiv="refresh" content="0;URL='$PAGESURL'" />
             </head>
             <body>
-              <p>redirect</p>
+              <p>Redirecting...</p>
             </body>
           </html>
           EOF
